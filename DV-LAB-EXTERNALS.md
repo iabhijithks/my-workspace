@@ -351,18 +351,11 @@ titles and numeric values.
 ``` r
 library(ggplot2)
 
-iris_count <- as.data.frame(table(iris$Species))
-names(iris_count) <- c("Species", "Count")
-
-ggplot(iris_count, aes(x="", y=Count, fill=Species)) +
-  geom_col(colour="white") +
+ggplot(iris, aes(x = "", fill = Species)) +
+  geom_bar(color = "white") +
   coord_polar("y") +
-  scale_fill_manual(values=c(
-    setosa="tomato",
-    versicolor="gold",
-    virginica="steelblue"
-  )) +
-  labs(title="Iris Flowers by Species", fill="Species") +
+  scale_fill_manual(values = c("tomato", "gold", "steelblue")) +
+  labs(title = "Iris Flowers by Species") +
   theme_void()
 ```
 
