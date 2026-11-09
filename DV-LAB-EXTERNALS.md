@@ -215,22 +215,16 @@ Create measures:
 Total Sales = SUM(Orders[Sales])
 Total Profit = SUM(Orders[Profit])
 
-Sales % Total =
+Sales % Total = 
 DIVIDE(
     [Total Sales],
-    CALCULATE(
-        [Total Sales],
-        REMOVEFILTERS(Orders[Region], Orders[Category], Orders[Sub-Category])
-    )
+    CALCULATE([Total Sales], ALL(Orders))
 )
 
-Profit % Total =
+Profit % Total = 
 DIVIDE(
     [Total Profit],
-    CALCULATE(
-        [Total Profit],
-        REMOVEFILTERS(Orders[Region], Orders[Category], Orders[Sub-Category])
-    )
+    CALCULATE([Total Profit], ALL(Orders))
 )
 ```
 
