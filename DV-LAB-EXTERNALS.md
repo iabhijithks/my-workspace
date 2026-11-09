@@ -1098,7 +1098,28 @@ barplot(df$CGPA,
         ylab="CGPA",
         las=2, cex.names=0.6)
 ```
+``` r
+library(ggplot2)
 
+# Your data
+cgpa <- c(10,10,7.28,8.91,6.52,9.86,7.12,6.78,9.01,8.47,
+          9.42,7.65,8.03,6.95,9.15,8.58,7.89,6.27,9.63,7.34,
+          8.26,9.79,8.68,7.03,6.49,9.28,8.14,7.52,9.94,9.8)
+
+roll <- c(53,30,1,5,27,18,64,46,14,50,
+          39,31,9,8,11,33,2,29,7,42,
+          58,12,48,36,41,49,34,28,63,244)
+
+df <- data.frame(RollNo = roll, CGPA = cgpa)
+
+# Create the ggplot
+ggplot(df, aes(x = factor(RollNo), y = CGPA)) +
+  geom_col(fill = "skyblue", color = "black", width = 0.7) +
+  labs(title = "CGPA by Roll Number",
+    x = "Roll Number",
+    y = "CGPA") +
+  theme_minimal()
+```
 ## Q3(C). Group by Region, Category and Sub-Category; calculate total Sales
 
 ``` r
